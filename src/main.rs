@@ -15,7 +15,7 @@ macro_rules! log {
 use shakmaty::{fen::Fen, uci::Uci, Color, Move, MoveList, Outcome, Position, Role, Setup};
 
 /// this example requires a newtype due to orphan rules, as both shakmaty::Chess and rubot::Game
-/// are from outside of this example.
+/// are from a different crate
 #[derive(Debug, Clone, Default)]
 struct Chess(shakmaty::Chess);
 
@@ -25,12 +25,10 @@ impl Game for Chess {
     type Actions = MoveList;
     type Fitness = i32;
 
-    /// Returns all currently possible actions and if they are executed by the given `player`
     fn actions(&self, player: &Self::Player) -> (bool, Self::Actions) {
         (*player == self.0.turn(), self.0.legals())
     }
 
-    /// Execute a given `action`, returning the new `fitness` for the given `player`
     fn execute(&mut self, action: &Self::Action, player: &Self::Player) -> Self::Fitness {
         self.0.play_unchecked(action);
 
