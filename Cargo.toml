@@ -1,0 +1,11 @@
+[package]
+name = "rubot-chess"
+version = "0.1.0"
+authors = ["lcnr/Bastian Kauschke <bastian_kauschke@hotmail.de>"]
+edition = "2018"
+
+[dependencies]
+vampirc-uci = "0.8"
+shakmaty = "0.14"
+
+rubot = { git = "https://github.com/lcnr/rubot.git", branch = "master" }
