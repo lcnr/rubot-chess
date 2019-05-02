@@ -148,11 +148,11 @@ fn main() {
 
                                 if game.0.turn() == Color::Black {
                                     if let (Some(bt), Some(bi)) = (black_time, black_increment) {
-                                        move_time = std::cmp::min(bi + bt / 20, 7000 + bi);
+                                        move_time = std::cmp::min(bi / 2 + bt / 20, 7000 + bi);
                                     }
                                 } else {
                                     if let (Some(wt), Some(wi)) = (white_time, white_increment) {
-                                        move_time = std::cmp::min(wi + wt / 20, 7000 + wi);
+                                        move_time = std::cmp::min(wi / 2 + wt / 20, 7000 + wi);
                                     }
                                 }
                             }
